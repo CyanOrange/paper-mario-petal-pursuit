@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 
 [node name="Player" type="KinematicBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
