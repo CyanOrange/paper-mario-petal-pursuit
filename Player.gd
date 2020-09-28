@@ -1,5 +1,5 @@
 extends KinematicBody
-
+signal hit
 
 var speed = 200
 var direction = Vector3()
@@ -10,6 +10,7 @@ var velocity = Vector3()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
 
 func _process(delta):
 	# Animation processing!
@@ -109,3 +110,9 @@ func _physics_process(delta):
 	#velocity = move_and_slide(direction,Vector3(0,1,0))
 
 #	pass
+
+
+func _on_Area_body_entered(body):
+	if body is RigidBody:#Area: # TODO: What type will enemy be? Assuming area for now.
+		body.hide() # eliminate enemy as a test
+

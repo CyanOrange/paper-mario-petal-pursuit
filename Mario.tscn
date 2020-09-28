@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Paper_Mario_Walk_Forward2.png" type="Texture" id=2]
@@ -81,11 +81,6 @@ animations = [ {
 
 [sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="SpatialMaterial" id=12]
-albedo_color = Color( 0.980392, 0.941176, 0.866667, 0 )
-
-[sub_resource type="CapsuleMesh" id=13]
-
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -100,9 +95,10 @@ __meta__ = {
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Area"]
-material_override = SubResource( 12 )
-mesh = SubResource( 13 )
-material/0 = null
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

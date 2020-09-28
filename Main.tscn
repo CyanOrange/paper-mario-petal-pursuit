@@ -1,88 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Walls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mario.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.gd" type="Script" id=5]
-[ext_resource path="res://Ball.gd" type="Script" id=6]
-[ext_resource path="res://Paper_Mario_Walk_Forward2.png" type="Texture" id=7]
-[ext_resource path="res://Paper_Mario_Run_Back.png" type="Texture" id=8]
-[ext_resource path="res://Paper_Mario_Back.png" type="Texture" id=9]
-[ext_resource path="res://jump.png" type="Texture" id=10]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 23
-atlas = ExtResource( 7 )
-region = Rect2( 167, 0, 167, 260 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 7
-atlas = ExtResource( 9 )
-region = Rect2( 0, 602, 196, 301 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 23
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 167, 260 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 23
-atlas = ExtResource( 7 )
-region = Rect2( 167, 0, 167, 260 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 7
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 176, 275 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 7
-atlas = ExtResource( 8 )
-region = Rect2( 176, 0, 176, 275 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 7
-atlas = ExtResource( 8 )
-region = Rect2( 0, 275, 176, 275 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 7
-atlas = ExtResource( 8 )
-region = Rect2( 176, 275, 176, 275 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 7
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 210, 282 )
-
-[sub_resource type="SpriteFrames" id=10]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "idleDown",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ) ],
-"loop": true,
-"name": "idleUp",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "walkDown",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "walkUp",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 9 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-} ]
+[ext_resource path="res://Ball.vs" type="Script" id=6]
 
 [node name="Main" type="Spatial"]
 
@@ -104,17 +26,8 @@ transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 0, 0.5,
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 3, 2.5, 0 )
 script = ExtResource( 6 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Mario" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
-script = ExtResource( 5 )
 
-[node name="Camera" type="Camera" parent="Player"]
+[node name="Camera" type="Camera" parent="Mario"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 9 )
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-offset = Vector2( 0, 25 )
-frames = SubResource( 10 )
-animation = "jump"
-__meta__ = {
-"_edit_group_": true
-}
