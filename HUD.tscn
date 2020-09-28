@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/komika_text/KOMTXTI_.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/komika_text/KOMTXTI_.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/komika_text/KOMTXTI_.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = SubResource( 5 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="HPLabel" type="Label" parent="."]
+margin_top = 1.0
+margin_right = 241.0
+margin_bottom = 52.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "HP: "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarsLabel" type="Label" parent="."]
+margin_left = 600.0
+margin_top = 8.0
+margin_right = 826.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 4 )
+text = "Stars:"
+percent_visible = -0.166667
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinLabel" type="Label" parent="."]
+margin_left = 844.0
+margin_top = 4.0
+margin_right = 1010.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 4 )
+text = "Coins:"
+percent_visible = -0.166667
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlowersLabel" type="Label" parent="."]
+margin_left = 321.0
+margin_top = 7.0
+margin_right = 593.0
+margin_bottom = 49.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+text = "Flowers:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

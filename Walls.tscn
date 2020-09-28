@@ -8,7 +8,9 @@ albedo_color = Color( 0.0470588, 0.752941, 0.913725, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
 
-[node name="Walls" type="Spatial"]
+[node name="Walls" type="Spatial" groups=[
+"Environment",
+]]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )

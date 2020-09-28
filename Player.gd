@@ -6,11 +6,14 @@ var direction = Vector3()
 var gravity = -9.8
 var velocity = Vector3()
 
+var hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func new_game():
+	hp = 10
 
 func _process(delta):
 	# Animation processing!
@@ -113,6 +116,8 @@ func _physics_process(delta):
 
 
 func _on_Area_body_entered(body):
-	if body is RigidBody:#Area: # TODO: What type will enemy be? Assuming area for now.
-		body.hide() # eliminate enemy as a test
+	if body.is_in_group("Enemies"):
+		body.hide()
+	#if body is RigidBody:#Area: # TODO: What type will enemy be? Assuming area for now.
+	#	body.hide() # eliminate enemy as a test
 
