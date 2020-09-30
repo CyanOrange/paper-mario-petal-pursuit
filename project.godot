@@ -19,6 +19,10 @@ config/name="Paper Mario: The Petal Pursuit"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [input]
 
 jump={

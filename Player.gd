@@ -1,10 +1,17 @@
 extends KinematicBody
 signal hit
 
-var speed = 200
+var airspeed = 520
+var speed = 500
+var friction = 0.5
+var acceleration = 40
+var deacceleration = 30
+
 var direction = Vector3()
-var gravity = -9.8
+var gravity = -85
 var velocity = Vector3()
+var jump_height = -200
+
 
 var hp
 
@@ -79,7 +86,6 @@ func _process(delta):
 	
 	
 	
-	
 
 	#if Input.is_action_just_released("ui_up"):
 		#$AnimatedSprite3D.play("idleUp")
@@ -96,8 +102,15 @@ func _physics_process(delta):
 		direction.z += 1 # add 1 from direction.z
 	if Input.is_action_pressed("ui_up"):
 		direction.z -= 1 # subtract 1 from direction.z
+	
 	direction=direction.normalized()
-	direction=direction*speed*delta
+	if !is_on_floor():
+		direction=direction*speed*delta
+	else: 
+		direction=direction*airspeed*delta	
+	
+	
+	
 	
 	velocity.y += gravity*delta
 	velocity.x=direction.x
@@ -108,7 +121,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_accept"): # TODO: find a better action for jumping
 		#velocity.y=10
 		if is_on_floor():
-			velocity.y=10
+			velocity.y=23
 
 	#velocity = move_and_slide(direction,Vector3(0,1,0))
 
